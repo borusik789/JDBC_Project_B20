@@ -159,10 +159,10 @@ public class DB_Utility {
     /**
      * Create a method to return the cell value at certain row certain column
      *
-     * @param rowNum
+     * @param rowNum row number
+     * @param colNum column number
      * @return Cell value as String
-     * @parem colNum
-     */
+=     */
     public static String getColumnDataAtRow(int rowNum, int colNum) {
 
         String result = "";
@@ -183,8 +183,8 @@ public class DB_Utility {
      * Create a method to return the cell value at certain row certain column
      *
      * @param rowNum row number
+     * @param colName column name
      * @return Cell value as String
-     * @parem colName column name
      */
     public static String getColumnDataAtRow(int rowNum, String colName) {
 
@@ -246,7 +246,7 @@ public class DB_Utility {
                 cellValuesList.add( cellValue ) ;
 
             }
-            rs.beforeFirst();
+            rs.beforeFirst(); //Move it back to before first location
 
         } catch (SQLException e) {
             System.out.println("ERROR WHILE GETTING ONE COLUMN DATA AS LIST " + e.getMessage() );
