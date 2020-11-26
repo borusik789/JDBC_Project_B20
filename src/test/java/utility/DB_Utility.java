@@ -55,20 +55,49 @@ public class DB_Utility {
 
     }
 
+    /**
+     * Count how many row we have
+     * @return the row count of the resultset we got
+     */
+    public static int getRowCount(){
 
+        int rowCount = 0 ;
 
-    public static void main(String[] args) throws SQLException {
+        try {
+            rs.last();
+            rowCount = rs.getRow() ;
 
-        createConnection();
+            // move the cursor back to beforeFirst location to avoid accident
+            rs.beforeFirst();
 
-        ResultSet rs =  runQuery("SELECT * FROM REGIONS");
+        } catch (SQLException e) {
 
-        // print out second column first row
-        rs.next();
-        System.out.println(" rs.getString(2) = " + rs.getString(2)   );
+            System.out.println("ERROR WHILE GETTING ROW COUNT "  + e.getMessage() );
+        }
 
+        return rowCount ;
 
     }
+
+    /**
+     * Get the column count
+     * @return count of column the result set have
+     */
+    public static int getColumnCount(){
+
+        int columnCount = 0 ;
+
+        try {
+            ResultSetMetaData rsmd = rs.getMetaData() ;
+            columnCount = rsmd.getColumnCount();
+
+        } catch (SQLException e) {
+            System.out.println("ERROR WHILE COUNTING THE COLUMNS " + e.getMessage() );
+        }
+
+        return columnCount ;
+    }
+
 
 
 }
