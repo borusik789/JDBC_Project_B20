@@ -1,4 +1,4 @@
-# JDBC_Project_B20
+# JDBC Project for Batch 20
 
 
 ```java
