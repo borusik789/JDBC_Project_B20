@@ -266,7 +266,9 @@ public class DB_Utility {
             while (rs.next()) {
 
                 for (int colNum = 1; colNum <= getColumnCount(); colNum++) {
-                    System.out.print(rs.getString(colNum) + "\t");
+//                    System.out.print(rs.getString(colNum) + "\t");
+                    //  for making it pretty
+                    System.out.printf("%-35s", rs.getString(colNum));
                 }
                 System.out.println();
             }
@@ -275,6 +277,36 @@ public class DB_Utility {
         } catch (SQLException e) {
             System.out.println("ERROR WHILE PRINTING WHOLE TABLE " + e.getMessage());
         }
+    }
+
+    /**
+     * A method that return the row data along with column name as Map object
+     * @param rowNum row numebr you want to get the data
+     * @return Map object -- column name as key and cell value as value
+     */
+    public static Map<String,String> getRowMap(int rowNum){
+
+        Map<String,String>  rowMap = new LinkedHashMap<>() ;
+
+        try{
+
+            rs.absolute(rowNum) ;
+            ResultSetMetaData rsmd = rs.getMetaData() ;
+
+            for (int colNum = 1; colNum <= rsmd.getColumnCount() ; colNum++) {
+
+                String columnName   =  rsmd.getColumnLabel( colNum ) ;
+                String cellValue    =  rs.getString( colNum ) ;
+                rowMap.put(columnName, cellValue) ;
+
+            }
+            rs.beforeFirst();
+
+        } catch (SQLException e) {
+            System.out.println("ERROR WHILE getting RowMap " + e.getMessage());
+        }
+        return rowMap ;
+
     }
 
 

@@ -2,8 +2,8 @@ package day3;
 
 import utility.DB_Utility;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.*;
 
 public class UtilityPractice {
 
@@ -40,6 +40,24 @@ public class UtilityPractice {
 
         System.out.println("3rd column value " + DB_Utility.getColumnDataAsList(3) );
         System.out.println("JOB_TITLE column value " + DB_Utility.getColumnDataAsList("JOB_TITLE") );
+
+        System.out.println("--------\n");
+//        DB_Utility.displayAllData();
+
+        Map<String,String>  row1Map = new LinkedHashMap<>() ; //new HashMap<>() ;
+        //JOB_ID, JOB_TITLE, MIN_SALARY, MAX_SALARY
+        //AC_ACCOUNT	Public Accountant	4200	9000
+        row1Map.put("JOB_ID", "AC_ACCOUNT");
+        row1Map.put("JOB_TITLE", "Public Accountant");
+        row1Map.put("MIN_SALARY", "4200");
+        row1Map.put("MAX_SALARY", "9000");
+
+        // now do above programmatically
+        // create row 1 map like above programmatically
+//        System.out.println("row1Map = " + row1Map);
+
+        System.out.println("first row rowMap = " + DB_Utility.getRowMap(1)  );
+
 
 
 
