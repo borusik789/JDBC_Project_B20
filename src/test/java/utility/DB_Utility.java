@@ -122,5 +122,36 @@ public class DB_Utility {
 
     }
 
+    /**
+     * Create a method that return all row data as a List<String>
+     * @param rowNum Row number you want to get the data
+     * @return the row data as List object
+     */
+     public static List<String> getRowDataAsList(int rowNum){
+
+         List<String> rowDataList = new ArrayList<>();
+
+         // first we need to move the pointer to the location the rowNum specified
+         try {
+             rs.absolute(rowNum) ;
+
+             for (int colNum = 1; colNum <= getColumnCount() ; colNum++) {
+
+                 String cellValue = rs.getString( colNum ) ;
+                 rowDataList.add( cellValue ) ;
+
+             }
+             rs.beforeFirst();
+
+         } catch (SQLException e) {
+             System.out.println("ERROR WHILE GETTING ROW DATA AS LIST " + e.getMessage() );
+         }
+         return rowDataList ;
+
+     }
+
+
+
+
 
 }
