@@ -184,7 +184,7 @@ public class DB_Utility {
      *
      * @param rowNum row number
      * @param colName column name
-     * @return Cell value as String
+     * @return Cell value as String at specified row numeber and column number
      */
     public static String getColumnDataAtRow(int rowNum, String colName) {
 
