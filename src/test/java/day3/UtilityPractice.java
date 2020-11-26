@@ -19,9 +19,11 @@ public class UtilityPractice {
          * move the pointer to the last row and get the row number
          */
 
-        jobRS.last() ;
-        int rowCount = jobRS.getRow(); // getRow is getting the current row numebr
+        int rowCount =  DB_Utility.getRowCount() ;
         System.out.println("rowCount = " + rowCount);
+
+        int colCount = DB_Utility.getColumnCount() ;
+        System.out.println("colCount = " + colCount);
 
 
         DB_Utility.destroy();
