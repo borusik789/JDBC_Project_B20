@@ -1,4 +1,4 @@
-package utility;
+package day4;
 
 public class SpartanDB_Practice {
 
