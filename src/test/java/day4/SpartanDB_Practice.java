@@ -20,6 +20,8 @@ public class SpartanDB_Practice {
         // call few methods from DB_Utility
         // print out row number
         System.out.println("DB_Utility.getRowCount() = " + DB_Utility.getRowCount());
+        // GET ALL THE COLUMN NAMES AND PRINT
+        System.out.println("DB_Utility.getColumnNames() = \n\t" + DB_Utility.getColumnNames());
 
 
         DB_Utility.destroy();
