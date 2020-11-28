@@ -17,6 +17,10 @@ public class WakeUpTask {
                 "                        GROUP BY d.DEPARTMENT_NAME   ) " +
                 "ORDER BY 1  ";
 
+        DB_Utility.runQuery(query) ;
+        DB_Utility.displayAllData();
+
+        DB_Utility.destroy();
 
 
 
